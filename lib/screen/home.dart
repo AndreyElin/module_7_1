@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'artists.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
   static const routeName = '/';
+
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
       ),
       drawer: Drawer(
         child: Column(
-          children:  [
+          children: [
             const SizedBox(
               height: 80,
             ),
@@ -29,7 +29,8 @@ class _HomeState extends State<Home> {
             ),
             ListTile(
               title: const Text('Artists'),
-              onTap: () => Navigator.pushReplacementNamed(context, Artists.routeName),
+              onTap: () =>
+                  Navigator.pushReplacementNamed(context, Artists.routeName),
             ),
           ],
         ),

@@ -3,16 +3,14 @@ import 'package:module_7_1/screen/artists.dart';
 import 'package:module_7_1/screen/detail.dart';
 import 'package:module_7_1/screen/home.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       onUnknownRoute: (RouteSettings settings) {
@@ -33,9 +31,8 @@ class MyApp extends StatelessWidget {
           case Detail.routeName:
             final args = settings.arguments as Map<String, dynamic>;
             return MaterialPageRoute(builder: (BuildContext context) {
-              if (args.containsKey('id')) {
-                return Detail(id: args['id'],name: args['name']
-                );
+              if (args.containsKey('about')) {
+                return Detail(about: args['about'], name: args['name']);
               }
               return const NotFound();
             });
@@ -45,9 +42,7 @@ class MyApp extends StatelessWidget {
             });
         }
       },
-      home:
-      Home(),
-      //Artists(),
+      home: const Home(),
     );
   }
 }
@@ -65,5 +60,3 @@ class NotFound extends StatelessWidget {
     );
   }
 }
-
-

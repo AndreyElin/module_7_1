@@ -1,13 +1,12 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'home.dart';
 
 class Artists extends StatefulWidget {
-  const Artists({Key? key}) : super(key: key);
   static const routeName = '/artists';
+
+  const Artists({Key? key}) : super(key: key);
 
   @override
   State<Artists> createState() => _ArtistsState();
@@ -38,13 +37,14 @@ class _ArtistsState extends State<Artists> {
       ),
       drawer: Drawer(
         child: Column(
-          children:  [
+          children: [
             const SizedBox(
               height: 80,
             ),
             ListTile(
               title: const Text('Home'),
-              onTap: () => Navigator.pushReplacementNamed(context, Home.routeName),
+              onTap: () =>
+                  Navigator.pushReplacementNamed(context, Home.routeName),
             ),
             const ListTile(
               title: Text('Artists'),
@@ -62,7 +62,8 @@ class _ArtistsState extends State<Artists> {
               onPressed: () {
                 Navigator.of(context).pushNamed(
                   '/detail',
-                  arguments: {'id': _items[index]['about'],
+                  arguments: {
+                    'about': _items[index]['about'],
                     'name': _items[index]['name']
                   },
                 );
